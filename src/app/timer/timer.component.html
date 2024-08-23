@@ -1,0 +1,39 @@
+
+<!-- <div class="container mx-auto p-4">
+    <div class="grid grid-cols-3 gap-4">
+        <input type="number" [(ngModel)]="hours" placeholder="Hours" class="input-field" />
+        <input type="number" [(ngModel)]="minutes" placeholder="Minutes" class="input-field" />
+        <input type="number" [(ngModel)]="seconds" placeholder="Seconds" class="input-field" />
+    </div>
+
+    <button (click)="startTimer()" class="mt-4 btn" [disabled]="isTimerRunning">Start</button>
+
+    <div *ngIf="timeLeft !== null" class="mt-4 text-center">
+        <p>{{ timeLeft }}</p>
+        <button (click)="toggleTimer()" class="mt-2 btn">{{ isPaused ? 'Continue' : 'Pause' }}</button>
+        <button (click)="restartTimer()" class="mt-2 btn">Restart</button>
+    </div>
+</div> -->
+
+<div class="container mx-auto p-4">
+    <div class="grid grid-cols-3 gap-4">
+        <input type="number" [(ngModel)]="hours" placeholder="Hours" class="input-field" [min]="1" [max]="24"
+            (change)="validateInput('hours')" />
+        <input type="number" [(ngModel)]="minutes" placeholder="Minutes" class="input-field" [min]="1" [max]="60"
+            (change)="validateInput('minutes')" />
+        <input type="number" [(ngModel)]="seconds" placeholder="Seconds" class="input-field" [min]="1" [max]="60"
+            (change)="validateInput('seconds')" />
+    </div>
+
+    <div *ngIf="validationError" class="mt-2 text-red-500">
+        <p>{{ validationError }}</p>
+    </div>
+
+    <button (click)="startTimer()" class="mt-4 btn" [disabled]="isTimerRunning || validationError">Start</button>
+
+    <div *ngIf="timeLeft !== null" class="mt-4 text-center">
+        <p>{{ timeLeft }}</p>
+        <button (click)="toggleTimer()" class="mt-2 btn">{{ isPaused ? 'Continue' : 'Pause' }}</button>
+        <button (click)="restartTimer()" class="mt-2 btn">Restart</button>
+    </div>
+</div>

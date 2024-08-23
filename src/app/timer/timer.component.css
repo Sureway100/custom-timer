@@ -1,0 +1,24 @@
+/* Centering the page */
+.container {
+    @apply flex items-center justify-center min-h-screen bg-purple-900;
+    flex-direction: column;
+}
+
+/* Input fields */
+.input-field {
+    @apply p-2 border border-gray-300 rounded text-black;
+}
+
+/* Button styles */
+.btn {
+    @apply px-4 py-2 rounded font-semibold transition-colors duration-300;
+}
+
+.btn {
+    @apply bg-purple-600 text-white hover:bg-purple-700;
+}
+
+/* Time display */
+p {
+    @apply text-white text-2xl font-bold mt-4;
+}
